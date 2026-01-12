@@ -1,0 +1,25 @@
+{
+  "name": "jersey-lab-backend",
+  "version": "1.0.0",
+  "description": "Backend project for e-commerce related with football shirts",
+  "license": "ISC",
+  "author": "Carlos Fulgencio Velasco",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec \"tsc && node dist/server.js\"",
+    "build": "rm -rf dist && tsc",
+    "start": "node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "5.2.1",
+    "nodemon": "3.1.11"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "dotenv": "^17.2.3",
+    "eslint": "9.39.2",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  }
+}

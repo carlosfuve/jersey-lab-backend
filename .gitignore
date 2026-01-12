@@ -1,0 +1,26 @@
+# Sistema
+.DS_Store
+Desktop.ini
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Variables de entorno
+.env
+
+# Directorios
+node_modules
+dist
+uploads
+.sass-cache
+.vercel
+
+# Configuración del editor
+##### VSCode #####
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.vercel
