@@ -8,7 +8,8 @@ async function initDatabase() {
     try {
         await pool.query('SELECT NOW()')
         console.log('✅ Conexión establecida con MySQL');
-    } catch (_) {
+    } catch (e) {
+        console.log(e)
         console.error('❌ Error al conectar con MySQL:');
         process.exit(1);
     }

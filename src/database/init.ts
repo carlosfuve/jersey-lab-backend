@@ -20,7 +20,7 @@ const pool = new Pool({
     user: DATABASE_USER,
     database: DATABASE_NAME,
 
-    ssl: { rejectUnauthorized: false },
+    ssl: isLocal ? false : { rejectUnauthorized: false },
     max: 15 // Max number of connections
 })
 
