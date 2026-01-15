@@ -1,5 +1,5 @@
 import { Response } from "express"
-import { ConflictError, ForbiddenError, NotFoundError, UnauthorizedError, ValidationError } from "../Errors"
+import { ConflictError, ForbiddenError, NotFoundError, ServiceError, UnauthorizedError, ValidationError } from "../Errors"
 
 export default class ExpressResponse {
     sendError(res: Response, error: unknown): Response {
@@ -23,6 +23,10 @@ export default class ExpressResponse {
         }
         if (error instanceof ConflictError) {
             code = 409
+            message = error.message
+        }
+        if (error instanceof ServiceError) {
+            code = 501
             message = error.message
         }
         if (error && typeof error === 'object' && 'message' in error && typeof (error as any).message === 'string') {

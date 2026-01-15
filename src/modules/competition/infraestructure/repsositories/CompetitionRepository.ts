@@ -4,13 +4,21 @@ import ICompetitionRepository from "../../domain/ICompetitionRepository";
 
 
 export default class CompetitionRepository implements ICompetitionRepository {
-
-    async exists(comp_id: string): Promise<boolean | null> {
+    async existsComp(compId: string): Promise<boolean | null> {
         try {
-            const exists: boolean = await Competition.exists(comp_id);
+            const exists: boolean = await Competition.exists(compId);
             return exists;
         } catch (_) {
-            return null;
+            return null
+        }
+    }
+
+    async existsCompByName(compName: string): Promise<boolean | null> {
+        try {
+            const existName: boolean = await Competition.existsByName(compName);
+            return existName;
+        } catch (_) {
+            return null
         }
     }
 
@@ -20,6 +28,33 @@ export default class CompetitionRepository implements ICompetitionRepository {
             return competitions;
         } catch (_) {
             return null;
+        }
+    }
+
+    async createCompetition(competition: ICompetition): Promise<ICompetition | null> {
+        try {
+            const competitionCreated: ICompetition = await Competition.createComp(competition);
+            return competitionCreated;
+        } catch (_) {
+            return null
+        }
+    }
+
+    async updateCompetition(competition: ICompetition): Promise<boolean | null> {
+        try {
+            const competionUpdated: boolean = await Competition.updateComp(competition);
+            return competionUpdated;
+        } catch (_) {
+            return null
+        }
+    }
+
+    async deleteCompetition(competitionId: string): Promise<boolean | null> {
+        try {
+            const competionDeleted: boolean = await Competition.deleteComp(competitionId);
+            return competionDeleted;
+        } catch (_) {
+            return null
         }
     }
 

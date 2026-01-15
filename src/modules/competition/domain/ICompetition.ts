@@ -1,5 +1,5 @@
 export default interface ICompetition {
-    id: string,
+    id?: string,
     name: string,
     logoUrl: string
 }
